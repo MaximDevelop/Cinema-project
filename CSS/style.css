@@ -24,8 +24,13 @@ body {
     margin-right: 30px;
 }
 
+.nav {
+    /*Относительное позиционирование*/
+    position: relative;
+}
+
 .header {
-    min-height: 100vh;
+    padding-bottom: 60px;
     /*Установка заднего фона с градиентом*/
     background: linear-gradient(180deg, rgba(98, 20, 2, 0.31) 0%, #621402 85.62%), url('../Img/bg.png') no-repeat center top / cover;
 }
@@ -33,6 +38,7 @@ body {
 .container {
     max-width: 1170px;
     margin: auto;
+    width: 90%;
 }
 
 .menu {
@@ -41,6 +47,11 @@ body {
     display: flex;
     margin: 0;
     margin-left: 17px;
+}
+
+/*Убранное меню для адаптива под меньшие устройства*/
+.m-menu {
+    display: none;
 }
 
 .menu-item {
@@ -94,7 +105,22 @@ body {
 }
 
 .film-trailer {
+    display: block;
     margin: auto;
+    background: url("../Img/play-button.png");
+    width: 100px;
+    height: 100px;
+    border: none;
+    /*Смена курсора*/
+    cursor: pointer;
+}
+
+/*Видео*/
+.video-trailer {
+    width: 500px;
+    height: 300px;
+    border: none;
+    display: none;
 }
 
 .film-details {
@@ -202,13 +228,18 @@ option {
 }
 
 .select-cinema {
-    min-width: 470px;
+    width: 470px;
 }
 
+/* Третья часть*/
 .scheme {
     background: rgba(36, 36, 36, 0.18);
     border-radius: 10px;
     margin-bottom: 40px;
+}
+
+.scheme-svg {
+    max-width: 1170px;
 }
 
 /*Будет использоваться для всех, кроме класса light*/
@@ -284,4 +315,230 @@ option {
     line-height: 21px;
     padding: 24px 52px;
     text-decoration: none;
+}
+
+/*Fourth part*/
+/*Измения для экрана размером меньше 1200px*/
+@media (max-width: 1200px) {
+    .container {
+        max-width: 960px;
+    }
+    .select-cinema {
+        width: 100%;
+    }
+}
+
+@media (max-width: 992px) {
+    .container {
+        max-width: 750px;
+    }
+    .session {
+        /*Перенос элемента на другую строку*/
+        flex-wrap: wrap;
+    }
+    .session-date {
+        flex-basis: 70%;
+        margin-bottom: 40px;
+    }
+    .session-time {
+        /*Порядок отображения*/
+        order: 2;
+    }
+    .session-cinema {
+        order: 3;
+    }
+    .menu-item {
+        margin-right: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        max-width: 560px;
+    }
+    .menu {
+        position: absolute;
+        left: 0;
+        top: 40px;
+        padding: 20px;
+        margin-left: 20px;
+        flex-direction: column;
+        background-color: #621402;
+        z-index: 9;
+        border-radius: 10px;
+        opacity: 0;
+        /*Скрытие элемента*/
+        visibility: hidden;
+        /*Сдвиг элемента*/
+        transform: translateY(20%);
+        transition: opacity 0.5s, transform 0.5s;
+    }
+    .menu-item:not(:last-child) {
+        margin-bottom: 10px;
+    }
+    .m-menu {
+        display: block;
+        background-color: transparent;
+        border: none;
+        width: 40px;
+        height: 40px;
+        margin-left: 10px;
+        cursor: pointer;
+    }
+    .is-open {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+    .film-description {
+        margin-right: 30px;
+    }
+    .film {
+        flex-direction: column;
+    }
+    .film-trailer {
+        margin-right: auto;
+        margin-left: 0;
+        margin-top: 40px;
+    }
+    .video-trailer {
+        margin-top: 20px;
+        width: 450px;
+        height: 250px;
+    }
+    .legend-label {
+        margin-left: 20px;  
+    }
+    .legend {
+        padding-top: 15px;
+        padding-bottom: 25px;
+        align-items: center;
+    }
+    .legend-text {
+        font-size: 12px;
+    }
+    .legend svg {
+        width: 32px;
+        height: 28px;
+        margin-right: 10px;
+    }
+}
+
+@media (max-width: 500px){
+    .video-trailer {
+        margin-top: 20px;
+        width: 360px;
+        height: 210px;
+    }
+}
+
+@media (max-width: 460px) {
+    .session-date-block {
+        flex-wrap: wrap;
+    }
+    .session-date-item {
+        margin: 5px;
+    }
+    .video-trailer {
+        margin-top: 20px;
+        width: 300px;
+        height: 160px;
+    }
+}
+
+@media (max-width: 355px) {
+    .legend-label {
+        margin-left: 15px;  
+    }
+    .legend {
+        padding-top: 12px;
+        padding-bottom: 22px;
+        align-items: center;
+    }
+    .legend-text {
+        font-size: 10px;
+    }
+    .legend svg {
+        width: 28px;
+        height: 26px;
+        margin-right: 10px;
+    }
+    .button {
+        font-size: 16px;
+        line-height: 19px;
+        padding: 10px 30px;
+    }
+    .price-label {
+        display: block;
+        font-size: 14px;
+        line-height: 18px;
+    }
+    .price-tag {
+        font-size: 42px;
+        line-height: 52px;
+    }
+    .session-cinema>.session-label {
+        margin-top: 15px;
+    }
+
+}
+
+@media (max-width: 320px) {
+    .legend-label {
+        margin-left: 14px;  
+    }
+    .legend {
+        padding-top: 12px;
+        padding-bottom: 22px;
+        align-items: center;
+    }
+    .legend-text {
+        font-size: 10px;
+    }
+    .legend svg {
+        width: 22px;
+        height: 19px;
+        margin-right: 8px;
+    }
+    .price-label {
+        display: block;
+        font-size: 12px;
+        line-height: 16px;
+    }
+    .price-tag {
+        font-size: 38px;
+        line-height: 48px;
+    }
+    .button {
+        font-size: 14px;
+        line-height: 16px;
+        padding: 18px 25px;
+    }
+    .video-trailer {
+        margin-top: 20px;
+        width: 250px;
+        height: 128px;
+    }
+    .session-date-item {
+        width: 75px;
+        height: 75px;
+    }
+    .session-month {
+    font-size: 13px;
+    line-height: 16px;
+    }
+
+    .session-day {
+        font-size: 25px;
+        font-weight: 900;
+        line-height: 30px;
+    }
+
+    .session-week {
+        font-size: 16px;
+        line-height: 20px;
+    }
+    .select-cinema {
+        width: 230px;
+    }
 }

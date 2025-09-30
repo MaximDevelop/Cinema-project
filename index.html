@@ -9,10 +9,18 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header class="header">
+<header class="header">
         <div class="navbar container">
             <a href="/"><img src="Img/logo.png" alt="logo"></a>
-            <nav>
+            <nav class="nav">
+                <button class="m-menu">
+                    <svg width="15" height="7" viewBox="0 0 15 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <line y1="0.5" x2="15" y2="0.5" stroke="white"/>
+                        <line y1="3.5" x2="15" y2="3.5" stroke="white"/>
+                        <line y1="6.5" x2="15" y2="6.5" stroke="white"/>
+                    </svg>
+
+                </button>
                 <ul class="menu">
                     <li class="menu-item">
                         <a href="#" class="menu-link">Главная</a>
@@ -63,8 +71,8 @@
                 </div>
             </div>
 
-            <a href="#" class="film-trailer"><img src="Img/play-button.png" alt="button"></a>
-
+            <button class="film-trailer"></button>
+            <iframe class="video-trailer" src="https://rutube.ru/play/embed/6481f4619a02366d70b92bd794c002ac/" allow="clipboard-write; autoplay" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
         </div>
 
         <div class="session container">
@@ -119,7 +127,7 @@
     </header>
 
     <div class="scheme container">
-        <svg class="scheme-svg" width="1170" height="600" viewBox="0 0 1170 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg class="scheme-svg" viewBox="0 0 1170 600" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path class="light" d="M128 115L201.04 48H968.96L1042 115H128Z" fill="url(#paint0_linear_13_374)"/>
             <line x1="76" y1="43" x2="1094" y2="43" stroke="black" stroke-opacity="0.39" stroke-width="10"/>
             <path d="M156.5 135C159.814 135 162.5 137.686 162.5 141V154C162.5 157.314 159.814 160 156.5 160H140.5C137.186 160 134.5 157.314 134.5 154V141C134.5 137.686 137.186 135 140.5 135H156.5Z" />
@@ -299,13 +307,13 @@
                 <svg width="38" height="32" viewBox="0 0 38 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path class="active" d="M26.8906 1C30.2043 1 32.8906 3.68629 32.8906 7V20C32.8906 23.3137 30.2043 26 26.8906 26H10.8906C7.57692 26 4.89062 23.3137 4.89062 20V7C4.89062 3.68629 7.57692 1 10.8906 1H26.8906Z" />
                 </svg>
-                <span class="legend-active">Выбрано</span>
+                <span class="legend-active legend-text">Выбрано</span>
             </div>
             <div class="legend-booked legend-label">
                 <svg width="39" height="32" viewBox="0 0 39 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path class="booked" d="M27.3125 1C30.6262 1 33.3125 3.68629 33.3125 7V20C33.3125 23.3137 30.6262 26 27.3125 26H11.3125C7.99879 26 5.3125 23.3137 5.3125 20V7C5.3125 3.68629 7.99879 1 11.3125 1H27.3125Z" />
                 </svg>
-                <span class="legend-booked">Занято</span>
+                <span class="legend-booked legend-text">Занято</span>
             </div>
         </div>
 
